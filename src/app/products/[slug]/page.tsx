@@ -341,29 +341,29 @@ export default function ProductDetailPage() {
 
         {/* Feature Cards Deep Dive */}
         {product.features.length > 0 && (
-          <div className="mt-20 pt-16 border-t border-cream-200">
-            <div className="text-center max-w-xl mx-auto mb-10">
-              <h2 className="font-serif text-2xl sm:text-3xl font-medium text-espresso-950">
+          <div className="mt-8 pt-6 sm:mt-20 sm:pt-16 border-t border-cream-200">
+            <div className="text-center max-w-xl mx-auto mb-5 sm:mb-10">
+              <h2 className="font-serif text-xl sm:text-3xl font-medium text-espresso-950">
                 Core Systems &amp; Features
               </h2>
-              <p className="text-xs sm:text-sm text-espresso-600 mt-2">
+              <p className="text-xs sm:text-sm text-espresso-600 mt-1">
                 Thoughtfully crafted to make everyday planning an effortless pleasure.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6">
               {product.features.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-cream-50 border border-cream-200 shadow-soft-sm space-y-2"
+                  className="p-3 sm:p-6 rounded-xl sm:rounded-2xl bg-cream-50 border border-cream-200 shadow-soft-sm space-y-1 sm:space-y-2"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-cream-200 flex items-center justify-center text-rosewood-700 font-bold mb-3">
-                    <Sparkles size={16} />
+                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-cream-200 flex items-center justify-center text-rosewood-700 font-bold mb-1.5 sm:mb-3">
+                    <Sparkles size={14} className="sm:w-4 sm:h-4" />
                   </div>
-                  <h3 className="font-serif text-base font-medium text-espresso-950">
+                  <h3 className="font-serif text-xs sm:text-base font-medium text-espresso-950 leading-snug">
                     {feat.title}
                   </h3>
-                  <p className="text-xs text-espresso-600 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-espresso-600 leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {feat.description}
                   </p>
                 </div>
@@ -372,15 +372,15 @@ export default function ProductDetailPage() {
           </div>
         )}
 
-        {/* Related Products Section */}
+        {/* Related Products Section - 3 Columns */}
         {relatedProducts.length > 0 && (
-          <div className="mt-20 pt-16 border-t border-cream-200">
-            <div className="flex items-center justify-between mb-8">
+          <div className="mt-8 pt-6 sm:mt-20 sm:pt-16 border-t border-cream-200">
+            <div className="flex items-center justify-between mb-4 sm:mb-8">
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-rosewood-700">
-                  Complete Your Digital Sanctuary
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-rosewood-700">
+                  Complete Your Sanctuary
                 </span>
-                <h3 className="font-serif text-2xl font-medium text-espresso-950">
+                <h3 className="font-serif text-lg sm:text-2xl font-medium text-espresso-950">
                   You May Also Love
                 </h3>
               </div>
@@ -389,11 +389,11 @@ export default function ProductDetailPage() {
                 className="text-xs font-semibold text-rosewood-700 hover:text-rosewood-900 flex items-center gap-1"
               >
                 <span>View All</span>
-                <ArrowRight size={13} />
+                <ArrowRight size={12} />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
               {relatedProducts.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}

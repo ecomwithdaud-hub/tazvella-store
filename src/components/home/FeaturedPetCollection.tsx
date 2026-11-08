@@ -10,7 +10,6 @@ import {
   ShieldAlert,
   Sparkles,
   ArrowRight,
-  CheckCircle2,
 } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
 import { ProductCard } from '@/components/products/ProductCard';
@@ -20,108 +19,115 @@ export function FeaturedPetCollection() {
   const flagshipPet = PRODUCTS.find((p) => p.id === 'prod-pet-parent-sanctuary');
 
   return (
-    <section id="pet-parent-collection" className="py-20 sm:py-28 relative overflow-hidden bg-caramel-50/40">
-      {/* Decorative background paw stamps */}
-      <div className="absolute top-12 right-12 text-caramel-200/40 pointer-events-none -z-10 rotate-12">
-        <PawPrint size={180} />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-caramel-100/80 border border-caramel-200 text-xs font-semibold text-caramel-900 mb-3.5 shadow-soft-sm">
-            <PawPrint size={13} className="text-caramel-700" />
-            <span>Featured Spotlight Collection</span>
+    <section id="pet-parent-collection" className="py-8 sm:py-20 relative overflow-hidden bg-caramel-50/40">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+        {/* Section Header - Compressed on mobile */}
+        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-caramel-100/80 border border-caramel-200 text-[11px] sm:text-xs font-semibold text-caramel-900 mb-2 shadow-soft-sm">
+            <PawPrint size={12} className="text-caramel-700" />
+            <span>Featured Collection</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-950 font-medium tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-espresso-950 font-medium tracking-tight">
             The Pet-Parent Sanctuary
           </h2>
 
-          <p className="text-sm sm:text-base text-espresso-600 mt-3.5 leading-relaxed font-light">
-            No more lost vaccination cards, forgotten flea treatments, or panic when leaving your fur baby with a sitter. Designed with aesthetic warmth and vet-approved organization.
+          <p className="text-xs sm:text-base text-espresso-600 mt-1.5 leading-relaxed font-light hidden sm:block">
+            No more lost vaccination cards or panic with pet sitters. Vet-approved Notion dashboards &amp; journals.
           </p>
         </div>
 
-        {/* Feature Highlight Banner: Why Pet Parents Love It */}
-        <div className="bg-cream-50 rounded-3xl p-6 sm:p-10 border border-caramel-200/80 shadow-soft-lg mb-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Feature Highlight Banner: Compressed on mobile */}
+        <div className="bg-cream-50 rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-caramel-200/80 shadow-soft-md mb-6 sm:mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 items-center">
             {/* Left Visual Preview */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-soft-md border border-cream-200 bg-cream-200">
+            <div className="lg:col-span-5 relative">
+              <div className="relative aspect-[16/9] sm:aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-soft-sm border border-cream-200 bg-cream-200">
                 <Image
                   src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=80"
                   alt="Pet health and Notion passport"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 40vw"
                 />
-                <div className="absolute bottom-3 left-3 bg-cream-50/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-cream-300 text-xs text-espresso-900 font-medium flex items-center gap-2 shadow-soft-sm">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="absolute bottom-2 left-2 bg-cream-50/95 backdrop-blur-md px-2.5 py-1 rounded-lg border border-cream-300 text-[10px] sm:text-xs text-espresso-900 font-medium flex items-center gap-1.5 shadow-soft-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   <span>Vaccine Passport: Up to Date</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Pillars */}
-            <div className="lg:col-span-6 space-y-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-caramel-700">
-                Designed for Dogs, Cats &amp; Multi-Pet Families
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-espresso-950 font-medium leading-snug">
-                One Serene Sanctuary for Every Vet Visit, Meal, and Memory
+            {/* Right Pillars - Ultra-compact 2x2 on mobile */}
+            <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-caramel-700">
+                  🐾 Multi-Pet Ready (Dogs &amp; Cats)
+                </span>
+                {flagshipPet && (
+                  <Link
+                    href={`/products/${flagshipPet.slug}`}
+                    className="text-xs font-semibold text-rosewood-700 hover:underline flex items-center gap-1 sm:hidden"
+                  >
+                    <span>Details</span>
+                    <ArrowRight size={11} />
+                  </Link>
+                )}
+              </div>
+
+              <h3 className="font-serif text-base sm:text-2xl text-espresso-950 font-medium leading-snug">
+                One Serene Hub for Every Vet Visit, Meal, &amp; Memory
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="p-3.5 rounded-xl bg-cream-100/90 border border-cream-200">
-                  <div className="flex items-center gap-2 font-semibold text-espresso-950 mb-1">
-                    <CalendarCheck size={14} className="text-caramel-600" />
-                    <span>Automated Reminders</span>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-cream-100/90 border border-cream-200">
+                  <div className="flex items-center gap-1 sm:gap-1.5 font-semibold text-espresso-950 text-[11px] sm:text-xs mb-0.5">
+                    <CalendarCheck size={12} className="text-caramel-600 shrink-0" />
+                    <span>Auto Alerts</span>
                   </div>
-                  <p className="text-espresso-600 leading-relaxed">
-                    Color-coded alerts 30 days before vaccines, boosters, or flea prevention are due.
+                  <p className="text-[10px] sm:text-xs text-espresso-600 line-clamp-1 sm:line-clamp-none">
+                    Vaccine renewals &amp; meds
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-cream-100/90 border border-cream-200">
-                  <div className="flex items-center gap-2 font-semibold text-espresso-950 mb-1">
-                    <ShieldAlert size={14} className="text-rosewood-600" />
-                    <span>Sitter Cheat Sheet</span>
+                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-cream-100/90 border border-cream-200">
+                  <div className="flex items-center gap-1 sm:gap-1.5 font-semibold text-espresso-950 text-[11px] sm:text-xs mb-0.5">
+                    <ShieldAlert size={12} className="text-rosewood-600 shrink-0" />
+                    <span>Sitter Sheet</span>
                   </div>
-                  <p className="text-espresso-600 leading-relaxed">
-                    1-Click printable or textable instructions with feeding amounts and emergency contacts.
+                  <p className="text-[10px] sm:text-xs text-espresso-600 line-clamp-1 sm:line-clamp-none">
+                    1-Click printable guide
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-cream-100/90 border border-cream-200">
-                  <div className="flex items-center gap-2 font-semibold text-espresso-950 mb-1">
-                    <PawPrint size={14} className="text-sage-600" />
-                    <span>Multi-Pet Switcher</span>
+                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-cream-100/90 border border-cream-200">
+                  <div className="flex items-center gap-1 sm:gap-1.5 font-semibold text-espresso-950 text-[11px] sm:text-xs mb-0.5">
+                    <PawPrint size={12} className="text-sage-600 shrink-0" />
+                    <span>Multi-Pet</span>
                   </div>
-                  <p className="text-espresso-600 leading-relaxed">
-                    Seamlessly toggle profiles for multiple dogs, cats, or rescue kittens without clutter.
+                  <p className="text-[10px] sm:text-xs text-espresso-600 line-clamp-1 sm:line-clamp-none">
+                    Unlimited pet profiles
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-cream-100/90 border border-cream-200">
-                  <div className="flex items-center gap-2 font-semibold text-espresso-950 mb-1">
-                    <Heart size={14} className="text-rosewood-600" />
-                    <span>Memory Scrapbook</span>
+                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-cream-100/90 border border-cream-200">
+                  <div className="flex items-center gap-1 sm:gap-1.5 font-semibold text-espresso-950 text-[11px] sm:text-xs mb-0.5">
+                    <Heart size={12} className="text-rosewood-600 shrink-0" />
+                    <span>Scrapbook</span>
                   </div>
-                  <p className="text-espresso-600 leading-relaxed">
-                    Cherish puppy milestones, adoption anniversaries, and silly photo moments forever.
+                  <p className="text-[10px] sm:text-xs text-espresso-600 line-clamp-1 sm:line-clamp-none">
+                    Memories &amp; milestones
                   </p>
                 </div>
               </div>
 
               {flagshipPet && (
-                <div className="pt-2">
+                <div className="pt-1 hidden sm:block">
                   <Link
                     href={`/products/${flagshipPet.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-caramel-500 hover:bg-caramel-600 text-cream-50 text-xs font-semibold tracking-wide shadow-soft transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-caramel-500 hover:bg-caramel-600 text-cream-50 text-xs font-semibold tracking-wide shadow-soft transition-all"
                   >
                     <span>View Flagship Pet Sanctuary Details</span>
-                    <ArrowRight size={14} />
+                    <ArrowRight size={13} />
                   </Link>
                 </div>
               )}
@@ -129,8 +135,8 @@ export function FeaturedPetCollection() {
           </div>
         </div>
 
-        {/* Pet Collection Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* 3 COLUMNS PET PRODUCTS GRID */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
           {petProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

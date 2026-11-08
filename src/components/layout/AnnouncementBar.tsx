@@ -17,8 +17,8 @@ export function AnnouncementBar() {
   };
 
   return (
-    <div className="bg-espresso-950 text-cream-100 text-xs py-2 px-4 border-b border-espresso-800 transition-all relative z-50">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div className="bg-espresso-950 text-cream-100 text-[11px] sm:text-xs py-1 sm:py-2 px-2.5 sm:px-4 border-b border-espresso-800 transition-all relative z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-1 sm:gap-2">
         {/* Left perk */}
         <div className="hidden md:flex items-center gap-2 text-espresso-300">
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
@@ -26,23 +26,23 @@ export function AnnouncementBar() {
         </div>
 
         {/* Center promo banner */}
-        <div className="flex items-center gap-2 font-medium tracking-wide">
-          <Sparkles size={14} className="text-caramel-400 animate-spin-slow" />
-          <span>Spring Refresh: 30% OFF All Notion & Pet Dashboards</span>
+        <div className="flex items-center gap-1.5 sm:gap-2 font-medium tracking-wide truncate sm:whitespace-normal">
+          <Sparkles size={12} className="text-caramel-400 shrink-0 sm:w-3.5 sm:h-3.5" />
+          <span className="truncate sm:whitespace-normal">30% OFF: </span>
           <button
             onClick={copyPromo}
-            className="inline-flex items-center gap-1 bg-espresso-800 hover:bg-espresso-700 text-caramel-300 px-2 py-0.5 rounded text-[11px] font-mono transition-colors border border-espresso-700"
+            className="inline-flex items-center gap-1 bg-espresso-800 hover:bg-espresso-700 text-caramel-300 px-1.5 py-0.5 rounded text-[10px] sm:text-[11px] font-mono transition-colors border border-espresso-700 shrink-0"
             title="Click to copy code"
           >
             {copied ? (
               <>
-                <Check size={11} className="text-emerald-400" />
+                <Check size={10} className="text-emerald-400" />
                 <span className="text-emerald-400">COPIED</span>
               </>
             ) : (
               <>
                 <span>TAZVELLA30</span>
-                <Copy size={10} />
+                <Copy size={9} />
               </>
             )}
           </button>

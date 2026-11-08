@@ -25,8 +25,8 @@ export function Navbar() {
         className={cn(
           'sticky top-0 z-40 transition-all duration-300',
           isScrolled
-            ? 'glass-nav shadow-soft-sm py-3.5'
-            : 'bg-cream-100/90 backdrop-blur-md py-5 border-b border-cream-200/60'
+            ? 'glass-nav shadow-soft-sm py-2 sm:py-3.5'
+            : 'bg-cream-100/90 backdrop-blur-md py-2.5 sm:py-5 border-b border-cream-200/60'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
