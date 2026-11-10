@@ -1,9 +1,12 @@
-{%- assign flagship = all_products[section.settings.product] -%}
+{%- assign flagship = blank -%}
+{%- if section.settings.product != blank -%}
+  {%- assign flagship = all_products[section.settings.product] -%}
+{%- endif -%}
 <section id="life-planners" class="tz-section" style="background:var(--tz-cream-50);">
   <div class="tz-container">
     <div class="tz-section-header">
       <div class="tz-pill-badge" style="background:var(--tz-rose-100); border-color:var(--tz-rose-200); color:var(--tz-rose-700);">
-        <span>✨ Signature Flagship</span>
+        <span>✦ Signature Flagship</span>
       </div>
       <h2 class="tz-section-title">
         {{ flagship.title | default: section.settings.fallback_title }}

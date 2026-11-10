@@ -2,7 +2,7 @@
   <div class="tz-container">
     <div class="tz-section-header">
       <div class="tz-pill-badge" style="background:var(--tz-caramel-100); border-color:var(--tz-caramel-200); color:var(--tz-caramel-800);">
-        <span>🐾 {{ section.settings.badge }}</span>
+        <span>♥ {{ section.settings.badge }}</span>
       </div>
       <h2 class="tz-section-title">{{ section.settings.heading }}</h2>
       <p class="tz-section-sub">{{ section.settings.subheading }}</p>
@@ -26,7 +26,7 @@
 
         <div>
           <span style="font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--tz-caramel-800);">
-            🐾 Multi-Pet Ready (Dogs &amp; Cats)
+            ✦ Multi-Pet Ready (Dogs &amp; Cats)
           </span>
           <h3 class="tz-serif" style="font-size:1.45rem; font-weight:500; margin:0.35rem 0 0; color:var(--tz-espresso-950);">
             {{ section.settings.banner_title }}
@@ -34,19 +34,19 @@
 
           <div class="tz-pet-pillars">
             <div class="tz-pillar-box">
-              <strong>📅 Auto Alerts</strong>
+              <strong>✓ Auto Alerts</strong>
               <div style="color:var(--tz-espresso-600); margin-top:0.15rem;">Vaccine renewals &amp; meds</div>
             </div>
             <div class="tz-pillar-box">
-              <strong>🛡️ Sitter Sheet</strong>
+              <strong>✓ Sitter Sheet</strong>
               <div style="color:var(--tz-espresso-600); margin-top:0.15rem;">1-Click printable guide</div>
             </div>
             <div class="tz-pillar-box">
-              <strong>🐾 Multi-Pet</strong>
+              <strong>✓ Multi-Pet</strong>
               <div style="color:var(--tz-espresso-600); margin-top:0.15rem;">Unlimited pet profiles</div>
             </div>
             <div class="tz-pillar-box">
-              <strong>💖 Scrapbook</strong>
+              <strong>♥ Scrapbook</strong>
               <div style="color:var(--tz-espresso-600); margin-top:0.15rem;">Memories &amp; milestones</div>
             </div>
           </div>
@@ -54,21 +54,25 @@
       </div>
     </div>
 
-    {%- assign pet_col = collections[section.settings.collection] -%}
+    {%- assign pet_col = blank -%}
+    {%- if section.settings.collection != blank -%}
+      {%- assign pet_col = collections[section.settings.collection] -%}
+    {%- endif -%}
+
     <div class="tz-grid-3">
       {%- if pet_col != blank and pet_col.products.size > 0 -%}
         {%- for product in pet_col.products limit: 3 -%}
           {% render 'product-card', product: product, card_index: forloop.index0 %}
         {%- endfor -%}
-      {%- elsif collections.all.products.size > 0 -%}
-        {%- for product in collections.all.products limit: 3 -%}
+      {%- elsif collections['all'] != blank and collections['all'].products.size > 0 -%}
+        {%- for product in collections['all'].products limit: 3 -%}
           {% render 'product-card', product: product, card_index: forloop.index0 %}
         {%- endfor -%}
       {%- else -%}
         <div class="tz-card">
           <div class="tz-card-media">
             <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" alt="Pet Parent Notion Sanctuary">
-            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">🐾 Flagship</span></div>
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">♥ Flagship</span></div>
           </div>
           <div class="tz-card-body">
             <div>
@@ -100,7 +104,7 @@
         <div class="tz-card">
           <div class="tz-card-media">
             <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80" alt="Puppy First Year Kit">
-            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">🐾 Survival Kit</span></div>
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">♥ Survival Kit</span></div>
           </div>
           <div class="tz-card-body">
             <div>

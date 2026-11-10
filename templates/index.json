@@ -19,7 +19,7 @@
         "perk_1": {
           "type": "perk",
           "settings": {
-            "icon_emoji": "⚡",
+            "icon_type": "lightning",
             "icon_bg": "#FAF0E2",
             "title": "Instant Cloud Delivery",
             "description": "Receive your 1-click template duplication links immediately upon purchase."
@@ -28,7 +28,7 @@
         "perk_2": {
           "type": "perk",
           "settings": {
-            "icon_emoji": "📱",
+            "icon_type": "mobile",
             "icon_bg": "#F9EFEB",
             "title": "100% Free Plan Friendly",
             "description": "Zero premium subscriptions required. Runs on free personal accounts."
@@ -37,7 +37,7 @@
         "perk_3": {
           "type": "perk",
           "settings": {
-            "icon_emoji": "🐾",
+            "icon_type": "paw",
             "icon_bg": "#EBF0EC",
             "title": "Dedicated Pet Care Hubs",
             "description": "Vaccine schedules, vet records, and sitter emergency sheets."
@@ -46,7 +46,7 @@
         "perk_4": {
           "type": "perk",
           "settings": {
-            "icon_emoji": "🛡️",
+            "icon_type": "shield",
             "icon_bg": "#F2EFF9",
             "title": "Lifetime Free Updates",
             "description": "Free future improvements & friendly video setup tutorials."
@@ -97,7 +97,7 @@
         "tab_2": {
           "type": "mockup_tab",
           "settings": {
-            "tab_label": "Pet Hub 🐾",
+            "tab_label": "Pet Hub",
             "device_label": "Mobile & Tablet Passport",
             "title": "Pet Parent Health Hub",
             "description": "Vet-approved records, medication schedules & 1-click pet sitter handover.",

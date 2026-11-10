@@ -2,7 +2,7 @@
   <div class="tz-container">
     <div class="tz-section-header">
       <div class="tz-pill-badge">
-        <span>✨ {{ section.settings.badge }}</span>
+        <span>✦ {{ section.settings.badge }}</span>
       </div>
       <h2 class="tz-section-title">{{ section.settings.heading }}</h2>
       <p class="tz-section-sub">{{ section.settings.subheading }}</p>
@@ -13,7 +13,7 @@
         <button type="button" class="tz-tab-btn is-active" data-filter-tab="all">All Assets</button>
         <button type="button" class="tz-tab-btn" data-filter-tab="life">Life &amp; Planning</button>
         <button type="button" class="tz-tab-btn" data-filter-tab="finances">Finances</button>
-        <button type="button" class="tz-tab-btn" data-filter-tab="pets">Pet Parents 🐾</button>
+        <button type="button" class="tz-tab-btn" data-filter-tab="pets">Pet Parents ♥</button>
       </div>
     </div>
 
@@ -32,9 +32,12 @@
       </select>
     </div>
 
-    {%- assign catalog_col = collections[section.settings.collection] | default: collections.all -%}
+    {%- assign catalog_col = collections['all'] -%}
+    {%- if section.settings.collection != blank and collections[section.settings.collection] != blank -%}
+      {%- assign catalog_col = collections[section.settings.collection] -%}
+    {%- endif -%}
     <div id="tz-catalog-grid" class="tz-grid-3">
-      {%- if catalog_col.products.size > 0 -%}
+      {%- if catalog_col != blank and catalog_col.products.size > 0 -%}
         {%- for product in catalog_col.products limit: section.settings.products_limit -%}
           {% render 'product-card', product: product, card_index: forloop.index0 %}
         {%- endfor -%}
@@ -60,7 +63,7 @@
         <article class="tz-card" data-product-card data-categories="all pets notion" data-title="The Modern Pet Parent Notion Sanctuary" data-price="2200" data-index="1">
           <div class="tz-card-media">
             <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" alt="Pet Parent Sanctuary">
-            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">🐾 Pet Care</span></div>
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">♥ Pet Care</span></div>
           </div>
           <div class="tz-card-body">
             <div>
@@ -111,7 +114,7 @@
         <article class="tz-card" data-product-card data-categories="all pets ipad goodnotes" data-title="Paws & Wellness iPad Pet Journal" data-price="1600" data-index="4">
           <div class="tz-card-media">
             <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80" alt="Paws Pet Journal">
-            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">🐾 Pet Care</span></div>
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">♥ Pet Care</span></div>
           </div>
           <div class="tz-card-body">
             <div>

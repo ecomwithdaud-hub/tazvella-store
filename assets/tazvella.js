@@ -98,7 +98,7 @@
       bonusFill.style.width = progress + '%';
       if (bonusPct) bonusPct.textContent = progress + '%';
       if (remaining === 0) {
-        bonusText.textContent = '🎉 Free Bonus Pack Unlocked! (' + (config.bonusGiftLabel || '') + ')';
+        bonusText.textContent = '✦ Free Bonus Pack Unlocked! (' + (config.bonusGiftLabel || '') + ')';
       } else {
         bonusText.textContent = 'Add ' + formatMoney(remaining) + ' more for Free Asset Bundle';
       }
