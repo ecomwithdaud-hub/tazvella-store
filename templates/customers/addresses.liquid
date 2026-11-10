@@ -1,0 +1,11 @@
+<section class="tz-section">
+  <div class="tz-container" style="max-width:42rem; background:var(--tz-cream-50); padding:2rem; border-radius:1.5rem; border:1px solid var(--tz-cream-200);">
+    <h1 class="tz-serif" style="font-size:1.85rem; margin-top:0;">Saved Addresses</h1>
+    {%- for address in customer.addresses -%}
+      <div style="padding:0.75rem 0; border-bottom:1px solid var(--tz-cream-200); font-size:0.85rem;">
+        {{ address | format_address }}
+      </div>
+    {%- endfor -%}
+    <a href="{{ routes.account_url }}" class="tz-btn tz-btn-secondary" style="margin-top:1rem;">← Back to Account</a>
+  </div>
+</section>

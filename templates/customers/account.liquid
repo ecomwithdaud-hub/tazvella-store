@@ -1,0 +1,22 @@
+<section class="tz-section">
+  <div class="tz-container" style="max-width:48rem;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+      <h1 class="tz-serif" style="font-size:2rem; margin:0;">My Sanctuary Account</h1>
+      <a href="{{ routes.account_logout_url }}" class="tz-btn tz-btn-secondary">Log Out</a>
+    </div>
+    <div style="background:var(--tz-cream-50); padding:1.5rem; border-radius:1.25rem; border:1px solid var(--tz-cream-200);">
+      <h2 class="tz-serif" style="font-size:1.35rem; margin-top:0;">Order History</h2>
+      {%- if customer.orders.size > 0 -%}
+        {%- for order in customer.orders -%}
+          <div style="padding:0.75rem 0; border-bottom:1px solid var(--tz-cream-200); display:flex; justify-content:space-between; font-size:0.85rem;">
+            <a href="{{ order.customer_url }}" style="color:var(--tz-rose-700); font-weight:600;">{{ order.name }}</a>
+            <span>{{ order.created_at | date: '%b %d, %Y' }}</span>
+            <span>{{ order.total_price | money }}</span>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <p style="font-size:0.85rem; color:var(--tz-espresso-600);">You haven&apos;t placed any orders yet.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>

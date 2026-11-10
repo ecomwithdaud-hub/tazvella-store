@@ -1,0 +1,16 @@
+<section class="tz-section">
+  <div class="tz-container" style="max-width:44rem; background:var(--tz-cream-50); padding:2rem; border-radius:1.5rem; border:1px solid var(--tz-cream-200);">
+    <h1 class="tz-serif" style="font-size:1.85rem; margin-top:0;">Order {{ order.name }}</h1>
+    <p style="font-size:0.8rem; color:var(--tz-espresso-600);">Placed on {{ order.created_at | date: '%B %d, %Y' }}</p>
+    {%- for line_item in order.line_items -%}
+      <div style="padding:0.75rem 0; border-bottom:1px solid var(--tz-cream-200); display:flex; justify-content:space-between; font-size:0.85rem;">
+        <span>{{ line_item.title }} (x{{ line_item.quantity }})</span>
+        <span>{{ line_item.final_line_price | money }}</span>
+      </div>
+    {%- endfor -%}
+    <div style="padding-top:1rem; font-weight:700; display:flex; justify-content:space-between;">
+      <span>Total</span>
+      <span>{{ order.total_price | money }}</span>
+    </div>
+  </div>
+</section>
