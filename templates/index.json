@@ -1,0 +1,258 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "badge_text": "Aesthetic Digital Atelier",
+        "heading": "Aesthetic Life Sanctuaries &",
+        "heading_accent": "Mindful Pet Care",
+        "subheadline": "Elevate your daily rituals. Beautifully engineered Notion dashboards, iPad journals, and pet health sanctuaries tailored for modern women who cherish calm spaces, organized finances, and their pets.",
+        "primary_cta_label": "Shop Digital Assets",
+        "secondary_cta_label": "Pet Hub",
+        "mockup_badge": "2026 Sanctuary",
+        "mockup_title": "The Ultimate Aesthetic Notion Life System"
+      }
+    },
+    "brand_perks": {
+      "type": "brand-perks",
+      "blocks": {
+        "perk_1": {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "⚡",
+            "icon_bg": "#FAF0E2",
+            "title": "Instant Cloud Delivery",
+            "description": "Receive your 1-click template duplication links immediately upon purchase."
+          }
+        },
+        "perk_2": {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "📱",
+            "icon_bg": "#F9EFEB",
+            "title": "100% Free Plan Friendly",
+            "description": "Zero premium subscriptions required. Runs on free personal accounts."
+          }
+        },
+        "perk_3": {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "🐾",
+            "icon_bg": "#EBF0EC",
+            "title": "Dedicated Pet Care Hubs",
+            "description": "Vaccine schedules, vet records, and sitter emergency sheets."
+          }
+        },
+        "perk_4": {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "🛡️",
+            "icon_bg": "#F2EFF9",
+            "title": "Lifetime Free Updates",
+            "description": "Free future improvements & friendly video setup tutorials."
+          }
+        }
+      },
+      "block_order": [
+        "perk_1",
+        "perk_2",
+        "perk_3",
+        "perk_4"
+      ],
+      "settings": {}
+    },
+    "featured_pet_collection": {
+      "type": "featured-pet-collection",
+      "settings": {
+        "badge": "Featured Collection",
+        "heading": "The Pet-Parent Sanctuary",
+        "subheading": "No more lost vaccination cards, forgotten flea treatments, or panic when leaving your fur baby with a sitter.",
+        "banner_title": "One Serene Hub for Every Vet Visit, Meal, & Memory"
+      }
+    },
+    "catalog_grid": {
+      "type": "catalog-grid",
+      "settings": {
+        "badge": "Curated Digital Collection",
+        "heading": "Designed for Flow & Tranquility",
+        "subheading": "Each template is crafted with soothing palettes, streamlined workflows, and zero unnecessary complications.",
+        "products_limit": 9
+      }
+    },
+    "interactive_mockups": {
+      "type": "interactive-mockups",
+      "blocks": {
+        "tab_1": {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "Life Planner",
+            "device_label": "MacBook & iPhone View",
+            "title": "Notion Life Sanctuary",
+            "description": "Your central hub for peaceful daily rituals, habit streaks & quarterly goals.",
+            "bullet_1": "Interconnected databases sync daily actions to annual milestones",
+            "bullet_2": "Morning reflection, skincare routine & grocery generator",
+            "fallback_url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80"
+          }
+        },
+        "tab_2": {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "Pet Hub 🐾",
+            "device_label": "Mobile & Tablet Passport",
+            "title": "Pet Parent Health Hub",
+            "description": "Vet-approved records, medication schedules & 1-click pet sitter handover.",
+            "bullet_1": "Automatic 30-day alerts before rabies or flea meds expire",
+            "bullet_2": "Emergency 1-page printable sitter handover sheet",
+            "fallback_url": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=80"
+          }
+        },
+        "tab_3": {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "iPad Journal",
+            "device_label": "Apple Pencil & GoodNotes",
+            "title": "iPad GoodNotes Planner",
+            "description": "Hyperlinked digital journal with 15,000+ internal tabs and 400+ pastel stickers.",
+            "bullet_1": "Instant lag-free navigation between month, week & day spreads",
+            "bullet_2": "Includes pre-cropped PNG stickers in warm peach and sage",
+            "fallback_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80"
+          }
+        },
+        "tab_4": {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "50/30/20 Budget",
+            "device_label": "Google Sheets & Excel",
+            "title": "Clean Wealth 50/30/20 Hub",
+            "description": "Zero math required. Auto-calculating debt payoff snowball and sinking funds.",
+            "bullet_1": "Automatically splits paychecks into Needs, Wants & Savings",
+            "bullet_2": "1-Click currency switcher for USD, EUR, GBP, CAD & AUD",
+            "fallback_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80"
+          }
+        }
+      },
+      "block_order": [
+        "tab_1",
+        "tab_2",
+        "tab_3",
+        "tab_4"
+      ],
+      "settings": {
+        "heading": "Designed for Real Life. Built for Every Screen."
+      }
+    },
+    "flagship_highlight": {
+      "type": "flagship-highlight",
+      "settings": {
+        "fallback_title": "The Ultimate Aesthetic Notion Life Planner",
+        "subheading": "Over 45 interconnected dashboards working harmoniously so you never drop a goal or morning ritual."
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "rev_1": {
+          "type": "review",
+          "settings": {
+            "title": "Rescued my chaotic dog mom life",
+            "comment": "The Pet Parent Sanctuary is an absolute lifesaver. Having all Luna's medications, vet history, and microchip ID ready on my phone in 2 seconds was priceless.",
+            "author": "Camille R.",
+            "date": "2 days ago",
+            "product_name": "Pet Parent Notion Sanctuary"
+          }
+        },
+        "rev_2": {
+          "type": "review",
+          "settings": {
+            "title": "Cleanest Notion template ever",
+            "comment": "Soft neutral colors, intuitive databases, and the morning routine view is now my daily ritual over coffee. Not cluttered at all!",
+            "author": "Elena M.",
+            "date": "1 week ago",
+            "product_name": "Aesthetic Notion Life Planner"
+          }
+        },
+        "rev_3": {
+          "type": "review",
+          "settings": {
+            "title": "Stopped dreading monthly budgets",
+            "comment": "The Clean Wealth Google Sheet is pure genius. The 50/30/20 breakdown auto-calculates without any complicated formula setup.",
+            "author": "Sophie T.",
+            "date": "2 weeks ago",
+            "product_name": "Clean Wealth Budgeting Hub"
+          }
+        },
+        "rev_4": {
+          "type": "review",
+          "settings": {
+            "title": "Our pet sitter was blown away",
+            "comment": "Printed out the 1-page Sitter Cheat Sheet with feeding times and vet contacts. Our sitter said it was the most organized house she ever watched.",
+            "author": "Hannah & Barnaby",
+            "date": "3 weeks ago",
+            "product_name": "Pet Parent Notion Sanctuary"
+          }
+        }
+      },
+      "block_order": [
+        "rev_1",
+        "rev_2",
+        "rev_3",
+        "rev_4"
+      ],
+      "settings": {
+        "heading": "Loved by 12,000+ Mindful Planners & Pet Parents"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I receive my digital downloads after purchasing?",
+            "answer": "Immediately upon checkout completion, you will receive an instant download page with direct links, plus an automatic confirmation email containing all access links, duplicate URLs, and video walkthrough guides."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a paid Notion subscription to use Tazvella templates?",
+            "answer": "No! All Tazvella Notion templates are 100% compatible with the completely FREE personal Notion plan. Simply click Duplicate to save the dashboard to your workspace."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I track multiple dogs or cats in the Pet Parent Sanctuary?",
+            "answer": "Yes! You can add unlimited dogs, cats, or small pets. Each pet receives an isolated health passport, vaccine alerts, and photo memory scrapbook."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which devices and apps support the digital iPad planners?",
+            "answer": "Our digital journals work on any tablet or device supporting PDF annotation: GoodNotes 5 & 6, Notability, Noteshelf, CollaNote, and Xodo."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "brand_perks",
+    "featured_pet_collection",
+    "catalog_grid",
+    "interactive_mockups",
+    "flagship_highlight",
+    "testimonials",
+    "faq"
+  ]
+}

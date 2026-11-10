@@ -1,0 +1,101 @@
+<section id="faq" class="tz-section" style="background:rgba(253,251,249,0.7); border-top:1px solid var(--tz-cream-200);">
+  <div class="tz-container">
+    <div class="tz-section-header">
+      <div class="tz-pill-badge">
+        <span>❓ Got Questions?</span>
+      </div>
+      <h2 class="tz-section-title">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="tz-faq-list">
+      {%- for block in section.blocks -%}
+        <div class="tz-faq-item {% if forloop.first %}is-open{% endif %}" {{ block.shopify_attributes }}>
+          <button type="button" class="tz-faq-btn" data-faq-toggle>
+            <span>{{ block.settings.question }}</span>
+            <span style="font-size:0.75rem; color:var(--tz-rose-700);">▾</span>
+          </button>
+          <div class="tz-faq-body">
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div style="max-width:52rem; margin:1.75rem auto 0; padding:1rem 1.25rem; border-radius:1rem; background:var(--tz-cream-200); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.5rem; font-size:0.78rem;">
+      <span>✉️ Still have a question before purchasing?</span>
+      <a href="mailto:{{ settings.support_email | default: 'hello@tazvella.com' }}" style="font-weight:600; color:var(--tz-rose-700);">
+        {{ settings.support_email | default: 'hello@tazvella.com' }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ Accordion",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I receive my digital downloads after purchasing?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Immediately upon checkout completion, you receive an instant download page and an automatic confirmation email containing all duplicate links, PDFs, and setup tutorials."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Accordion",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I receive my digital downloads after purchasing?",
+            "answer": "Immediately upon checkout completion, you will receive an instant download page with direct links, plus an automatic confirmation email containing all access links, duplicate URLs, and video walkthrough guides."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need a paid Notion subscription to use Tazvella templates?",
+            "answer": "No! All Tazvella Notion templates are 100% compatible with the completely FREE personal Notion plan. Simply click Duplicate to save the dashboard to your workspace."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I track multiple dogs or cats in the Pet Parent Sanctuary?",
+            "answer": "Yes! You can add unlimited dogs, cats, or small pets. Each pet receives an isolated health passport, vaccine alerts, and photo memory scrapbook."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which devices and apps support the digital iPad planners?",
+            "answer": "Our digital journals work on any tablet or device supporting PDF annotation: GoodNotes 5 & 6, Notability, Noteshelf, CollaNote, and Xodo."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,131 @@
+<section class="tz-hero">
+  <div class="tz-container">
+    <div class="tz-hero-grid">
+      <div class="tz-hero-copy">
+        <div class="tz-pill-badge">
+          <span class="tz-pulse-dot" style="background:var(--tz-rose-500);"></span>
+          <span style="color:var(--tz-rose-700);">{{ section.settings.badge_text }}</span>
+          <span style="opacity:0.4;">|</span>
+          <span>🐾 Pet &amp; Life Hubs</span>
+        </div>
+
+        <h1 class="tz-hero-title">
+          {{ section.settings.heading }}
+          <span class="tz-hero-accent">{{ section.settings.heading_accent }}</span>
+        </h1>
+
+        <p class="tz-hero-sub">{{ section.settings.subheadline }}</p>
+
+        <div class="tz-hero-ctas">
+          <a href="{{ section.settings.primary_cta_url | default: '#catalog' }}" class="tz-btn tz-btn-primary">
+            <span>{{ section.settings.primary_cta_label }}</span>
+            <span>→</span>
+          </a>
+
+          <a href="{{ section.settings.secondary_cta_url | default: '#pet-parent-collection' }}" class="tz-btn tz-btn-secondary">
+            <span>🐾 {{ section.settings.secondary_cta_label }}</span>
+          </a>
+        </div>
+
+        <div class="tz-hero-proof">
+          <span>★★★★★ <strong>4.96/5</strong> (12k+ downloads)</span>
+          <span>⚡ Instant Digital Access</span>
+          <span>🛡️ Free Notion Plan Ready</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="tz-hero-media">
+          {%- if section.settings.hero_image != blank -%}
+            <img src="{{ section.settings.hero_image | image_url: width: 1200 }}" alt="{{ section.settings.heading | escape }}">
+          {%- else -%}
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80" alt="Aesthetic Notion Life Planner & iPad Sanctuary">
+          {%- endif -%}
+
+          <div class="tz-hero-media-caption">
+            <span class="tz-hero-caption-pill">{{ section.settings.mockup_badge }}</span>
+            <h3 class="tz-serif" style="margin:0.25rem 0 0; font-size:1rem; font-weight:500;">
+              {{ section.settings.mockup_title }}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Top Badge Text",
+      "default": "Aesthetic Digital Atelier"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Headline",
+      "default": "Aesthetic Life Sanctuaries &"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Highlighted Phrase",
+      "default": "Mindful Pet Care"
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Elevate your daily rituals. Beautifully engineered Notion dashboards, iPad journals, and pet health sanctuaries tailored for modern women who cherish calm spaces, organized finances, and their pets."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_label",
+      "label": "Primary Button Label",
+      "default": "Shop Digital Assets"
+    },
+    {
+      "type": "url",
+      "id": "primary_cta_url",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary Button Label",
+      "default": "Pet Hub"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Mockup Image"
+    },
+    {
+      "type": "text",
+      "id": "mockup_badge",
+      "label": "Mockup Caption Pill",
+      "default": "2026 Sanctuary"
+    },
+    {
+      "type": "text",
+      "id": "mockup_title",
+      "label": "Mockup Caption Title",
+      "default": "The Ultimate Aesthetic Notion Life System"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tazvella Hero Section"
+    }
+  ]
+}
+{% endschema %}

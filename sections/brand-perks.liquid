@@ -1,0 +1,99 @@
+<section class="tz-perks">
+  <div class="tz-container">
+    <div class="tz-perks-grid">
+      {%- for block in section.blocks -%}
+        <div class="tz-perk-card" {{ block.shopify_attributes }}>
+          <div class="tz-perk-icon" style="background: {{ block.settings.icon_bg }}; border: 1px solid var(--tz-cream-300);">
+            <span>{{ block.settings.icon_emoji }}</span>
+          </div>
+          <div style="min-width:0;">
+            <h4 class="tz-perk-title">{{ block.settings.title }}</h4>
+            <p class="tz-perk-desc">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Perks Strip",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "perk",
+      "name": "Perk Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_emoji",
+          "label": "Icon / Emoji",
+          "default": "⚡"
+        },
+        {
+          "type": "color",
+          "id": "icon_bg",
+          "label": "Icon Background",
+          "default": "#FAF0E2"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Instant Cloud Delivery"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Receive your 1-click template duplication links immediately upon purchase."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Perks Strip",
+      "blocks": [
+        {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "⚡",
+            "icon_bg": "#FAF0E2",
+            "title": "Instant Cloud Delivery",
+            "description": "Receive your 1-click template duplication links immediately upon purchase."
+          }
+        },
+        {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "📱",
+            "icon_bg": "#F9EFEB",
+            "title": "100% Free Plan Friendly",
+            "description": "Zero premium subscriptions required. Runs on free personal accounts."
+          }
+        },
+        {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "🐾",
+            "icon_bg": "#EBF0EC",
+            "title": "Dedicated Pet Care Hubs",
+            "description": "Vaccine schedules, vet records, and sitter emergency sheets."
+          }
+        },
+        {
+          "type": "perk",
+          "settings": {
+            "icon_emoji": "🛡️",
+            "icon_bg": "#F2EFF9",
+            "title": "Lifetime Free Updates",
+            "description": "Free future improvements & friendly video setup tutorials."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

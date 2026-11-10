@@ -1,0 +1,106 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Tazvella Atelier",
+    "theme_version": "1.0.0",
+    "theme_author": "Tazvella",
+    "theme_documentation_url": "https://tazvella.com",
+    "theme_support_url": "https://tazvella.com"
+  },
+  {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_cream_bg",
+        "label": "Main Background (Cream)",
+        "default": "#FAF8F5"
+      },
+      {
+        "type": "color",
+        "id": "color_pearl_surface",
+        "label": "Card Surface (Pearl)",
+        "default": "#FDFBF9"
+      },
+      {
+        "type": "color",
+        "id": "color_espresso_text",
+        "label": "Primary Text (Deep Espresso)",
+        "default": "#1D1917"
+      },
+      {
+        "type": "color",
+        "id": "color_muted_text",
+        "label": "Muted Text",
+        "default": "#5D564F"
+      },
+      {
+        "type": "color",
+        "id": "color_rosewood",
+        "label": "Primary Accent (Rosewood)",
+        "default": "#BE6E54"
+      },
+      {
+        "type": "color",
+        "id": "color_sage",
+        "label": "Secondary Accent (Sage)",
+        "default": "#537158"
+      },
+      {
+        "type": "color",
+        "id": "color_caramel",
+        "label": "Pet Highlight Accent (Caramel)",
+        "default": "#CE8639"
+      }
+    ]
+  },
+  {
+    "name": "Cart & Free Bonus Goal",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_bonus_bar",
+        "label": "Enable Free Bonus Gift Progress Bar",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "bonus_threshold",
+        "label": "Free Bonus Threshold (in store currency)",
+        "default": 35
+      },
+      {
+        "type": "text",
+        "id": "bonus_gift_label",
+        "label": "Bonus Gift Description",
+        "default": "400+ Aesthetic Pet Stickers & Notion Banner Kit ($15 Value)"
+      }
+    ]
+  },
+  {
+    "name": "Social & Support",
+    "settings": [
+      {
+        "type": "text",
+        "id": "support_email",
+        "label": "Customer Support Email",
+        "default": "hello@tazvella.com"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "pinterest_url",
+        "label": "Pinterest URL"
+      },
+      {
+        "type": "url",
+        "id": "tiktok_url",
+        "label": "TikTok URL"
+      }
+    ]
+  }
+]

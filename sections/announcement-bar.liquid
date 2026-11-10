@@ -1,0 +1,54 @@
+<div class="tz-announcement">
+  <div class="tz-container tz-announcement-inner">
+    <div class="tz-announcement-left">
+      <span class="tz-pulse-dot"></span>
+      <span>{{ section.settings.left_note }}</span>
+    </div>
+
+    <div class="tz-announcement-center">
+      <span>✨</span>
+      <span>{{ section.settings.promo_text }}</span>
+      {%- if section.settings.promo_code != blank -%}
+        <button
+          type="button"
+          class="tz-promo-btn"
+          data-copy-promo="{{ section.settings.promo_code }}"
+          title="Click to copy promo code"
+        >
+          <span data-promo-label>{{ section.settings.promo_code }}</span>
+          <span>📋</span>
+        </button>
+      {%- endif -%}
+    </div>
+
+    <div style="font-size:0.7rem; color:#A7A199; display:none;" class="tz-show-md">
+      {{ cart.currency.iso_code }} ({{ cart.currency.symbol }})
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_note",
+      "label": "Left Trust Note",
+      "default": "Instant Download & Lifetime Template Access"
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Promo Headline",
+      "default": "Spring Refresh: 30% OFF Dashboards"
+    },
+    {
+      "type": "text",
+      "id": "promo_code",
+      "label": "Discount Code",
+      "default": "TAZVELLA30"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,148 @@
+<section id="reviews" class="tz-section">
+  <div class="tz-container">
+    <div class="tz-section-header">
+      <div class="tz-pill-badge">
+        <span style="color:var(--tz-rose-500);">♥</span>
+        <span>Community Love</span>
+      </div>
+      <h2 class="tz-section-title">{{ section.settings.heading }}</h2>
+      <div style="margin-top:0.5rem; font-size:0.78rem;">
+        <span style="color:var(--tz-caramel-500); font-weight:700;">★★★★★ 4.96/5</span>
+        <span style="color:var(--tz-espresso-600);"> (1,240+ 5-star verified reviews)</span>
+      </div>
+    </div>
+
+    <div class="tz-reviews-track">
+      {%- for block in section.blocks -%}
+        <div class="tz-review-card" {{ block.shopify_attributes }}>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.72rem; margin-bottom:0.5rem;">
+              <span style="color:var(--tz-caramel-500);">★★★★★</span>
+              <span style="color:var(--tz-espresso-400); font-family:monospace;">{{ block.settings.date }}</span>
+            </div>
+            <h3 class="tz-serif" style="font-size:1rem; font-weight:600; margin:0 0 0.45rem; color:var(--tz-espresso-950);">
+              &ldquo;{{ block.settings.title }}&rdquo;
+            </h3>
+            <p style="font-size:0.78rem; color:var(--tz-espresso-600); line-height:1.5; margin:0;">
+              {{ block.settings.comment }}
+            </p>
+          </div>
+
+          <div style="padding-top:0.75rem; margin-top:0.85rem; border-top:1px solid var(--tz-cream-200); display:flex; align-items:center; gap:0.65rem;">
+            <div style="width:32px; height:32px; border-radius:9999px; background:var(--tz-rose-100); color:var(--tz-rose-700); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.78rem; flex-shrink:0;">
+              {{ block.settings.author | slice: 0, 1 }}
+            </div>
+            <div style="min-width:0;">
+              <div style="font-size:0.75rem; font-weight:600; color:var(--tz-espresso-900);">
+                {{ block.settings.author }} <span style="color:var(--tz-sage-600);" title="Verified">✓</span>
+              </div>
+              <div style="font-size:0.65rem; color:var(--tz-espresso-400); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                {{ block.settings.product_name }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved by 12,000+ Mindful Planners & Pet Parents"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Customer Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review Headline",
+          "default": "Literally rescued my chaotic dog mom life"
+        },
+        {
+          "type": "textarea",
+          "id": "comment",
+          "label": "Comment",
+          "default": "The Pet Parent Sanctuary is an absolute lifesaver. Having all Luna's medications, vet history, and microchip ID on my phone in 2 seconds is priceless!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Customer Name",
+          "default": "Camille R."
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Time Ago",
+          "default": "2 days ago"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Purchased",
+          "default": "Modern Pet Parent Sanctuary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "title": "Rescued my chaotic dog mom life",
+            "comment": "The Pet Parent Sanctuary is an absolute lifesaver. Having all Luna's medications, vet history, and microchip ID ready on my phone in 2 seconds was priceless.",
+            "author": "Camille R.",
+            "date": "2 days ago",
+            "product_name": "Pet Parent Notion Sanctuary"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Cleanest Notion template ever",
+            "comment": "Soft neutral colors, intuitive databases, and the morning routine view is now my daily ritual over coffee. Not cluttered at all!",
+            "author": "Elena M.",
+            "date": "1 week ago",
+            "product_name": "Aesthetic Notion Life Planner"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Stopped dreading monthly budgets",
+            "comment": "The Clean Wealth Google Sheet is pure genius. The 50/30/20 breakdown auto-calculates without any complicated formula setup.",
+            "author": "Sophie T.",
+            "date": "2 weeks ago",
+            "product_name": "Clean Wealth Budgeting Hub"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Our pet sitter was blown away",
+            "comment": "Printed out the 1-page Sitter Cheat Sheet with feeding times and vet contacts. Our sitter said it was the most organized house she ever watched.",
+            "author": "Hannah & Barnaby",
+            "date": "3 weeks ago",
+            "product_name": "Pet Parent Notion Sanctuary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

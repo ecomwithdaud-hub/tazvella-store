@@ -1,0 +1,105 @@
+{%- assign flagship = all_products[section.settings.product] -%}
+<section id="life-planners" class="tz-section" style="background:var(--tz-cream-50);">
+  <div class="tz-container">
+    <div class="tz-section-header">
+      <div class="tz-pill-badge" style="background:var(--tz-rose-100); border-color:var(--tz-rose-200); color:var(--tz-rose-700);">
+        <span>✨ Signature Flagship</span>
+      </div>
+      <h2 class="tz-section-title">
+        {{ flagship.title | default: section.settings.fallback_title }}
+      </h2>
+      <p class="tz-section-sub">{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="tz-pet-banner-grid">
+      <div>
+        <div style="position:relative; border-radius:1.5rem; overflow:hidden; aspect-ratio:16/10; background:var(--tz-cream-200); border:1px solid var(--tz-cream-300); box-shadow:0 20px 45px -15px rgba(29,25,23,0.12);">
+          {%- if flagship != blank and flagship.featured_image != blank -%}
+            <img src="{{ flagship.featured_image | image_url: width: 1200 }}" alt="{{ flagship.title | escape }}" style="width:100%; height:100%; object-fit:cover;">
+          {%- elsif section.settings.fallback_image != blank -%}
+            <img src="{{ section.settings.fallback_image | image_url: width: 1200 }}" alt="{{ section.settings.fallback_title | escape }}" style="width:100%; height:100%; object-fit:cover;">
+          {%- else -%}
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80" alt="Aesthetic Notion Life Planner" style="width:100%; height:100%; object-fit:cover;">
+          {%- endif -%}
+          <span style="position:absolute; top:0.75rem; left:0.75rem; background:rgba(19,16,14,0.8); color:#FAF8F5; padding:0.25rem 0.75rem; border-radius:9999px; font-size:0.72rem; font-family:monospace;">
+            Central Hub &amp; Daily Rituals
+          </span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:0.8rem; color:var(--tz-caramel-500); font-weight:600;">★★★★★ 4.96 <span style="color:var(--tz-espresso-400); font-weight:400;">(342 reviews)</span></span>
+          <span class="tz-badge tz-badge-rose">Save 42% Today</span>
+        </div>
+
+        <div style="display:flex; align-items:baseline; gap:0.65rem;">
+          <span class="tz-serif" style="font-size:2.15rem; font-weight:700; color:var(--tz-espresso-950);">
+            {%- if flagship != blank -%}{{ flagship.price | money }}{%- else -%}$24.00{%- endif -%}
+          </span>
+          {%- if flagship != blank and flagship.compare_at_price > flagship.price -%}
+            <span style="text-decoration:line-through; color:var(--tz-espresso-400); font-size:0.9rem;">{{ flagship.compare_at_price | money }}</span>
+          {%- elsif flagship == blank -%}
+            <span style="text-decoration:line-through; color:var(--tz-espresso-400); font-size:0.9rem;">$42.00</span>
+          {%- endif -%}
+        </div>
+
+        <div style="background:var(--tz-cream-100); border:1px solid var(--tz-cream-200); border-radius:1rem; padding:1rem;">
+          <h4 style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em; margin:0 0 0.65rem; color:var(--tz-espresso-900);">Included in Your Template:</h4>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.45rem; font-size:0.8rem; color:var(--tz-espresso-700);">
+            <li>✓ 1-Click Duplicate Notion Template URL (Lifetime Updates)</li>
+            <li>✓ 45+ Pre-built Pages (Daily, Weekly, Monthly &amp; Annual Views)</li>
+            <li>✓ Goal Setting, Habit Tracker &amp; Skincare Routine Matrix</li>
+            <li>✓ 350+ Custom Minimalist Notion Icons &amp; Matching Covers</li>
+          </ul>
+        </div>
+
+        <div style="display:flex; gap:0.65rem; align-items:center;">
+          {%- if flagship != blank -%}
+            <button type="button" data-ajax-add="{{ flagship.selected_or_first_available_variant.id }}" class="tz-btn tz-btn-primary" style="flex:1;">
+              + Get Notion Access • {{ flagship.price | money }}
+            </button>
+            <a href="{{ flagship.url }}" class="tz-btn tz-btn-secondary">Details →</a>
+          {%- else -%}
+            <a href="#catalog" class="tz-btn tz-btn-primary" style="flex:1;">Explore All Templates →</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flagship Product Highlight",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Flagship Product"
+    },
+    {
+      "type": "text",
+      "id": "fallback_title",
+      "label": "Fallback Heading",
+      "default": "The Ultimate Aesthetic Notion Life Planner"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Over 45 interconnected dashboards working harmoniously so you never drop a goal or morning ritual."
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flagship Product Highlight"
+    }
+  ]
+}
+{% endschema %}

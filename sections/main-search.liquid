@@ -1,0 +1,28 @@
+<section class="tz-section">
+  <div class="tz-container">
+    <div class="tz-section-header">
+      <h1 class="tz-section-title">Search Digital Assets</h1>
+      <form action="{{ routes.search_url }}" method="get" role="search" style="margin-top:1rem; display:flex; gap:0.5rem; justify-content:center;">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="tz-search-input" style="max-width:22rem;">
+        <button type="submit" class="tz-btn tz-btn-primary">{{ 'general.search.submit' | t }}</button>
+      </form>
+    </div>
+
+    {%- if search.performed -%}
+      <div class="tz-grid-3">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {% render 'product-card', product: item, card_index: forloop.index0 %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "settings": []
+}
+{% endschema %}

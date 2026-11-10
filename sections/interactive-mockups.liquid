@@ -1,0 +1,193 @@
+<section id="interactive-mockups" class="tz-section" style="background:rgba(253,251,249,0.65); border-top:1px solid var(--tz-cream-200);" data-mockup-scope>
+  <div class="tz-container">
+    <div class="tz-section-header">
+      <div class="tz-pill-badge" style="background:var(--tz-sage-100); border-color:var(--tz-sage-200); color:var(--tz-sage-600);">
+        <span>👁 Interactive Device Showcase</span>
+      </div>
+      <h2 class="tz-section-title">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="tz-tabs-wrap">
+      <div class="tz-tabs">
+        {%- for block in section.blocks -%}
+          <button
+            type="button"
+            class="tz-tab-btn {% if forloop.first %}is-active{% endif %}"
+            data-mockup-tab="tab-{{ block.id }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.tab_label }}
+          </button>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="tz-pet-banner" style="border-color:var(--tz-cream-300); margin-bottom:0;">
+      {%- for block in section.blocks -%}
+        <div
+          class="tz-pet-banner-grid"
+          data-mockup-panel="tab-{{ block.id }}"
+          style="{% unless forloop.first %}display:none;{% endunless %}"
+        >
+          <div>
+            <div style="position:relative; border-radius:1rem; overflow:hidden; aspect-ratio:16/10; background:var(--tz-cream-200);">
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.title | escape }}" style="width:100%; height:100%; object-fit:cover;">
+              {%- else -%}
+                <img src="{{ block.settings.fallback_url }}" alt="{{ block.settings.title | escape }}" style="width:100%; height:100%; object-fit:cover;">
+              {%- endif -%}
+              <span style="position:absolute; top:0.65rem; left:0.65rem; background:rgba(19,16,14,0.8); color:#FAF8F5; padding:0.2rem 0.65rem; border-radius:9999px; font-size:0.6875rem; font-family:monospace;">
+                {{ block.settings.device_label }}
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <span style="font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--tz-rose-700);">Live System Preview</span>
+            <h3 class="tz-serif" style="font-size:1.65rem; font-weight:500; margin:0.25rem 0 0.5rem;">{{ block.settings.title }}</h3>
+            <p style="font-size:0.85rem; color:var(--tz-espresso-600); line-height:1.5; margin-bottom:1rem;">{{ block.settings.description }}</p>
+
+            <ul style="list-style:none; padding:0; margin:0 0 1.25rem; display:flex; flex-direction:column; gap:0.5rem; font-size:0.8rem; color:var(--tz-espresso-700);">
+              <li>✓ {{ block.settings.bullet_1 }}</li>
+              <li>✓ {{ block.settings.bullet_2 }}</li>
+            </ul>
+
+            <a href="{{ block.settings.cta_url | default: '#catalog' }}" class="tz-btn tz-btn-primary">
+              <span>Explore Template →</span>
+            </a>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Interactive Mockups",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed for Real Life. Built for Every Screen."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mockup_tab",
+      "name": "Device Preview Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Name",
+          "default": "Notion Life Hub"
+        },
+        {
+          "type": "text",
+          "id": "device_label",
+          "label": "Device Pill",
+          "default": "MacBook & iPhone View"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Mockup Title",
+          "default": "Notion Life Sanctuary"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Your central hub for peaceful daily rituals, habit streaks & quarterly goals."
+        },
+        {
+          "type": "text",
+          "id": "bullet_1",
+          "label": "Feature Bullet 1",
+          "default": "Interconnected databases automatically sync daily actions to your annual goals"
+        },
+        {
+          "type": "text",
+          "id": "bullet_2",
+          "label": "Feature Bullet 2",
+          "default": "Built-in morning mindset reflection and bedtime wind-down prompts"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Mockup Image"
+        },
+        {
+          "type": "text",
+          "id": "fallback_url",
+          "label": "Fallback Image URL",
+          "default": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Explore Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Interactive Mockups",
+      "blocks": [
+        {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "Life Planner",
+            "device_label": "MacBook & iPhone View",
+            "title": "Notion Life Sanctuary",
+            "description": "Your central hub for peaceful daily rituals, habit streaks & quarterly goals.",
+            "bullet_1": "Interconnected databases sync daily actions to annual milestones",
+            "bullet_2": "Morning reflection, skincare routine & grocery generator",
+            "fallback_url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80"
+          }
+        },
+        {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "Pet Hub 🐾",
+            "device_label": "Mobile & Tablet Passport",
+            "title": "Pet Parent Health Hub",
+            "description": "Vet-approved records, medication schedules & 1-click pet sitter handover.",
+            "bullet_1": "Automatic 30-day alerts before rabies or flea meds expire",
+            "bullet_2": "Emergency 1-page printable sitter handover sheet",
+            "fallback_url": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=80"
+          }
+        },
+        {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "iPad Journal",
+            "device_label": "Apple Pencil & GoodNotes",
+            "title": "iPad GoodNotes Planner",
+            "description": "Hyperlinked digital journal with 15,000+ internal tabs and 400+ pastel stickers.",
+            "bullet_1": "Instant lag-free navigation between month, week & day spreads",
+            "bullet_2": "Includes pre-cropped PNG stickers in warm peach and sage",
+            "fallback_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80"
+          }
+        },
+        {
+          "type": "mockup_tab",
+          "settings": {
+            "tab_label": "50/30/20 Budget",
+            "device_label": "Google Sheets & Excel",
+            "title": "Clean Wealth 50/30/20 Hub",
+            "description": "Zero math required. Auto-calculating debt payoff snowball and sinking funds.",
+            "bullet_1": "Automatically splits paychecks into Needs, Wants & Savings",
+            "bullet_2": "1-Click currency switcher for USD, EUR, GBP, CAD & AUD",
+            "fallback_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

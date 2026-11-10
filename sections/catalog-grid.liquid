@@ -1,0 +1,199 @@
+<section id="catalog" class="tz-section">
+  <div class="tz-container">
+    <div class="tz-section-header">
+      <div class="tz-pill-badge">
+        <span>✨ {{ section.settings.badge }}</span>
+      </div>
+      <h2 class="tz-section-title">{{ section.settings.heading }}</h2>
+      <p class="tz-section-sub">{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="tz-tabs-wrap">
+      <div class="tz-tabs">
+        <button type="button" class="tz-tab-btn is-active" data-filter-tab="all">All Assets</button>
+        <button type="button" class="tz-tab-btn" data-filter-tab="life">Life &amp; Planning</button>
+        <button type="button" class="tz-tab-btn" data-filter-tab="finances">Finances</button>
+        <button type="button" class="tz-tab-btn" data-filter-tab="pets">Pet Parents 🐾</button>
+      </div>
+    </div>
+
+    <div class="tz-controls-row">
+      <input
+        id="tz-catalog-search"
+        type="text"
+        class="tz-search-input"
+        placeholder="{{ 'general.search.placeholder' | t }}"
+      >
+
+      <select id="tz-catalog-sort" class="tz-sort-select" aria-label="Sort products">
+        <option value="featured">Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+
+    {%- assign catalog_col = collections[section.settings.collection] | default: collections.all -%}
+    <div id="tz-catalog-grid" class="tz-grid-3">
+      {%- if catalog_col.products.size > 0 -%}
+        {%- for product in catalog_col.products limit: section.settings.products_limit -%}
+          {% render 'product-card', product: product, card_index: forloop.index0 %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Demo preview items shown only until store products are added {%- endcomment -%}
+        <article class="tz-card" data-product-card data-categories="all life notion" data-title="The Ultimate Aesthetic Notion Life Planner 2026" data-price="2400" data-index="0">
+          <div class="tz-card-media">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" alt="Notion Life Planner">
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-rose">Bestseller</span><span class="tz-badge tz-badge-sale">-42%</span></div>
+          </div>
+          <div class="tz-card-body">
+            <div>
+              <div class="tz-card-rating"><span>★ 4.96</span><span>Life</span></div>
+              <h3 class="tz-card-title">The Ultimate Aesthetic Notion Life Planner</h3>
+            </div>
+            <div class="tz-card-footer">
+              <div><span class="tz-price-now">$24.00</span><span class="tz-price-old">$42.00</span></div>
+              <span class="tz-badge tz-badge-rose">Demo</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tz-card" data-product-card data-categories="all pets notion" data-title="The Modern Pet Parent Notion Sanctuary" data-price="2200" data-index="1">
+          <div class="tz-card-media">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" alt="Pet Parent Sanctuary">
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">🐾 Pet Care</span></div>
+          </div>
+          <div class="tz-card-body">
+            <div>
+              <div class="tz-card-rating"><span>★ 4.98</span><span>Pets</span></div>
+              <h3 class="tz-card-title">The Modern Pet Parent Notion Sanctuary</h3>
+            </div>
+            <div class="tz-card-footer">
+              <div><span class="tz-price-now">$22.00</span><span class="tz-price-old">$38.00</span></div>
+              <span class="tz-badge tz-badge-rose">Demo</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tz-card" data-product-card data-categories="all finances sheets" data-title="Clean Wealth 50/30/20 Budgeting Hub" data-price="1800" data-index="2">
+          <div class="tz-card-media">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Clean Wealth Budget">
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-rose">Top Finance</span></div>
+          </div>
+          <div class="tz-card-body">
+            <div>
+              <div class="tz-card-rating"><span>★ 4.97</span><span>Finances</span></div>
+              <h3 class="tz-card-title">Clean Wealth 50/30/20 Budgeting Hub</h3>
+            </div>
+            <div class="tz-card-footer">
+              <div><span class="tz-price-now">$18.00</span><span class="tz-price-old">$32.00</span></div>
+              <span class="tz-badge tz-badge-rose">Demo</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tz-card" data-product-card data-categories="all life ipad goodnotes" data-title="Minimalist Pastel iPad Digital Planner" data-price="1900" data-index="3">
+          <div class="tz-card-media">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" alt="iPad Planner">
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-rose">Hyperlinked</span></div>
+          </div>
+          <div class="tz-card-body">
+            <div>
+              <div class="tz-card-rating"><span>★ 4.92</span><span>iPad</span></div>
+              <h3 class="tz-card-title">Minimalist Pastel iPad Digital Planner</h3>
+            </div>
+            <div class="tz-card-footer">
+              <div><span class="tz-price-now">$19.00</span><span class="tz-price-old">$34.00</span></div>
+              <span class="tz-badge tz-badge-rose">Demo</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tz-card" data-product-card data-categories="all pets ipad goodnotes" data-title="Paws & Wellness iPad Pet Journal" data-price="1600" data-index="4">
+          <div class="tz-card-media">
+            <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80" alt="Paws Pet Journal">
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-caramel">🐾 Pet Care</span></div>
+          </div>
+          <div class="tz-card-body">
+            <div>
+              <div class="tz-card-rating"><span>★ 4.94</span><span>GoodNotes</span></div>
+              <h3 class="tz-card-title">Paws &amp; Wellness iPad Pet Journal</h3>
+            </div>
+            <div class="tz-card-footer">
+              <div><span class="tz-price-now">$16.00</span><span class="tz-price-old">$28.00</span></div>
+              <span class="tz-badge tz-badge-rose">Demo</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tz-card" data-product-card data-categories="all life canva" data-title="Aesthetic Creator Canva Brand Kit" data-price="2700" data-index="5">
+          <div class="tz-card-media">
+            <img src="https://images.unsplash.com/photo-1507842229451-7f01be8510d2?auto=format&fit=crop&w=800&q=80" alt="Canva Kit">
+            <div class="tz-card-badges"><span class="tz-badge tz-badge-rose">280+ Kits</span></div>
+          </div>
+          <div class="tz-card-body">
+            <div>
+              <div class="tz-card-rating"><span>★ 4.95</span><span>Canva</span></div>
+              <h3 class="tz-card-title">Aesthetic Creator Canva Brand Kit</h3>
+            </div>
+            <div class="tz-card-footer">
+              <div><span class="tz-price-now">$27.00</span><span class="tz-price-old">$49.00</span></div>
+              <span class="tz-badge tz-badge-rose">Demo</span>
+            </div>
+          </div>
+        </article>
+      {%- endif -%}
+    </div>
+
+    <div id="tz-catalog-empty" style="display:none; text-align:center; padding:2.5rem 1rem; background:var(--tz-cream-50); border-radius:1.25rem; border:1px solid var(--tz-cream-200); margin-top:1rem;">
+      <p class="tz-serif" style="font-size:1.15rem;">No matching digital assets found.</p>
+      <button type="button" class="tz-btn tz-btn-primary" onclick="document.querySelector('[data-filter-tab=all]').click(); document.getElementById('tz-catalog-search').value='';">
+        Reset Filters
+      </button>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Catalog 3-Column Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "Curated Digital Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed for Flow & Tranquility"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Each template is crafted with soothing palettes, streamlined workflows, and zero unnecessary complications."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection (defaults to All)"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Maximum Products to Show",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "default": 9
+    }
+  ],
+  "presets": [
+    {
+      "name": "Catalog 3-Column Grid"
+    }
+  ]
+}
+{% endschema %}

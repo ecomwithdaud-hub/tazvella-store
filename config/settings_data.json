@@ -1,0 +1,40 @@
+{
+  "current": {
+    "color_cream_bg": "#FAF8F5",
+    "color_pearl_surface": "#FDFBF9",
+    "color_espresso_text": "#1D1917",
+    "color_muted_text": "#5D564F",
+    "color_rosewood": "#BE6E54",
+    "color_sage": "#537158",
+    "color_caramel": "#CE8639",
+    "enable_bonus_bar": true,
+    "bonus_threshold": 35,
+    "bonus_gift_label": "400+ Aesthetic Pet Stickers & Notion Banner Kit ($15 Value)",
+    "support_email": "hello@tazvella.com",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "promo_text": "Spring Refresh: 30% OFF Dashboards",
+          "promo_code": "TAZVELLA30",
+          "left_note": "Instant Download & Lifetime Template Access"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "brand_name": "Tazvella",
+          "brand_subtitle": "Aesthetic Digital Atelier & Pet Care"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "newsletter_heading": "Receive 15% off your first aesthetic dashboard.",
+          "newsletter_subtext": "Plus receive our free Weekly Habit Reset & Dog/Cat Wellness mini-tracker straight to your inbox.",
+          "about_text": "Thoughtfully curated digital systems, Notion sanctuaries, and pet wellness planners crafted for modern women balancing ambition, peaceful rituals, and deep love for their pets."
+        }
+      }
+    }
+  }
+}

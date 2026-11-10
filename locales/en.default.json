@@ -1,0 +1,43 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "menu": "Menu"
+    },
+    "cart": {
+      "title": "Your Digital Bag",
+      "empty": "Your bag is currently empty",
+      "empty_subtext": "Explore our aesthetic life planners, budget spreadsheets, and pet parent dashboards to get started!",
+      "continue_shopping": "Explore Digital Assets",
+      "checkout": "Proceed to Instant Checkout",
+      "subtotal": "Estimated Total"
+    },
+    "search": {
+      "placeholder": "Search templates, iPad, pets...",
+      "submit": "Search"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Bag",
+      "sold_out": "Unavailable",
+      "quick_view": "Quick View",
+      "in_bag": "Added to Bag",
+      "instant_delivery": "Instant Digital Delivery"
+    }
+  },
+  "sections": {
+    "footer": {
+      "newsletter_placeholder": "Enter your email address...",
+      "newsletter_submit": "Claim 15%"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Page not found",
+      "subtext": "The sanctuary page you are looking for doesn't exist.",
+      "back_home": "Back to Tazvella Storefront"
+    }
+  }
+}

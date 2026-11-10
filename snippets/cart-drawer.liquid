@@ -1,0 +1,55 @@
+<div id="tz-cart-drawer" class="tz-drawer" aria-hidden="true">
+  <div class="tz-backdrop" data-cart-close></div>
+  <div class="tz-drawer-panel" role="dialog" aria-modal="true" aria-label="{{ 'general.cart.title' | t }}">
+    <div>
+      <div class="tz-drawer-header">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="font-size:1.1rem;">🛍️</span>
+          <h2 class="tz-serif" style="margin:0; font-size:1.3rem; font-weight:500;">{{ 'general.cart.title' | t }}</h2>
+          <span class="tz-badge tz-badge-rose" data-cart-count>{{ cart.item_count }}</span>
+        </div>
+        <button type="button" data-cart-close class="tz-icon-btn" aria-label="{{ 'general.accessibility.close' | t }}">✕</button>
+      </div>
+
+      {%- if settings.enable_bonus_bar -%}
+        <div class="tz-bonus-bar">
+          <div style="display:flex; justify-content:space-between; align-items:center; font-weight:600; color:var(--tz-rose-700);">
+            <span id="tz-bonus-text">🎁 Add more to unlock Free Bonus Bundle!</span>
+            <span id="tz-bonus-pct" class="tz-mono">0%</span>
+          </div>
+          <div class="tz-progress-track">
+            <div id="tz-bonus-fill" class="tz-progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div id="tz-cart-items" class="tz-drawer-items">
+      {%- if cart.item_count == 0 -%}
+        <div style="text-align:center; padding:3rem 1rem;">
+          <p class="tz-serif" style="font-size:1.15rem; margin-bottom:0.5rem;">{{ 'general.cart.empty' | t }}</p>
+          <p style="font-size:0.78rem; color:var(--tz-espresso-600); margin-bottom:1.25rem;">{{ 'general.cart.empty_subtext' | t }}</p>
+          <button type="button" data-cart-close class="tz-btn tz-btn-primary">{{ 'general.cart.continue_shopping' | t }}</button>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div id="tz-cart-footer" class="tz-drawer-footer" style="{% if cart.item_count == 0 %}display:none;{% endif %}">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+        <span style="font-size:0.85rem; font-weight:600;">{{ 'general.cart.subtotal' | t }}</span>
+        <span id="tz-cart-subtotal" class="tz-mono" style="font-size:1.05rem; font-weight:700;">{{ cart.total_price | money }}</span>
+      </div>
+
+      <form action="{{ routes.cart_url }}" method="post">
+        <button type="submit" name="checkout" class="tz-btn tz-btn-primary" style="width:100%; justify-content:space-between;">
+          <span>{{ 'general.cart.checkout' | t }}</span>
+          <span>→</span>
+        </button>
+      </form>
+
+      <div style="text-align:center; font-size:0.6875rem; color:var(--tz-espresso-400); margin-top:0.65rem;">
+        🛡️ Guaranteed Safe Checkout • ⚡ Instant Cloud Download
+      </div>
+    </div>
+  </div>
+</div>

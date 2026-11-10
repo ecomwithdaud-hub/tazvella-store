@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_cream_bg | default: '#FAF8F5' }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {{ content_for_header }}
+
+    <style>
+      :root {
+        --tz-cream-50: {{ settings.color_pearl_surface | default: '#FDFBF9' }};
+        --tz-cream-100: {{ settings.color_cream_bg | default: '#FAF8F5' }};
+        --tz-cream-200: #F4EFEB;
+        --tz-cream-300: #ECE3DC;
+        --tz-cream-400: #DECFC3;
+        --tz-espresso-950: #13100E;
+        --tz-espresso-900: {{ settings.color_espresso_text | default: '#1D1917' }};
+        --tz-espresso-700: #3A342F;
+        --tz-espresso-600: {{ settings.color_muted_text | default: '#5D564F' }};
+        --tz-espresso-400: #7E766D;
+        --tz-rose-100: #F9EFEB;
+        --tz-rose-200: #F2D9D0;
+        --tz-rose-500: {{ settings.color_rosewood | default: '#BE6E54' }};
+        --tz-rose-700: #86412D;
+        --tz-sage-100: #EBF0EC;
+        --tz-sage-200: #D6E1D8;
+        --tz-sage-600: {{ settings.color_sage | default: '#537158' }};
+        --tz-caramel-50: #FDF9F3;
+        --tz-caramel-100: #FAF0E2;
+        --tz-caramel-200: #F4DFC0;
+        --tz-caramel-500: {{ settings.color_caramel | default: '#CE8639' }};
+        --tz-caramel-800: #7A4B1C;
+        --font-serif: 'Cormorant Garamond', Georgia, serif;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+    </style>
+
+    {{ 'tazvella.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      window.TazvellaConfig = {
+        moneyFormat: {{ shop.money_format | json }},
+        currencySymbol: {{ cart.currency.symbol | json }},
+        bonusEnabled: {{ settings.enable_bonus_bar | default: true | json }},
+        bonusThreshold: {{ settings.bonus_threshold | default: 35 | times: 100 | json }},
+        bonusGiftLabel: {{ settings.bonus_gift_label | default: '400+ Aesthetic Pet Stickers & Notion Banner Kit' | json }},
+        routes: {
+          cartUrl: {{ routes.cart_url | json }},
+          cartAddUrl: {{ routes.cart_add_url | json }},
+          cartChangeUrl: {{ routes.cart_change_url | json }}
+        }
+      };
+    </script>
+    <script src="{{ 'tazvella.js' | asset_url }}" defer="defer"></script>
+  </head>
+
+  <body class="tz-body">
+    <a class="tz-skip-link" href="#MainContent">
+      {{ 'general.accessibility.skip_to_content' | t }}
+    </a>
+
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
+
+    <main id="MainContent" class="tz-main" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'footer' %}
+
+    {% render 'cart-drawer' %}
+    {% render 'quick-view-modal' %}
+  </body>
+</html>

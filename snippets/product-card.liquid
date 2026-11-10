@@ -1,0 +1,122 @@
+{%- assign first_variant = product.selected_or_first_available_variant -%}
+{%- assign is_pet = false -%}
+{%- assign cats = 'all' -%}
+{%- for col in product.collections -%}
+  {%- assign cats = cats | append: ' ' | append: col.handle -%}
+  {%- if col.handle contains 'pet' -%}
+    {%- assign is_pet = true -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- for tag in product.tags -%}
+  {%- assign tag_low = tag | downcase -%}
+  {%- assign cats = cats | append: ' ' | append: tag_low -%}
+  {%- if tag_low contains 'pet' or tag_low contains 'dog' or tag_low contains 'cat' -%}
+    {%- assign is_pet = true -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if product.title contains 'Pet' or product.title contains 'Puppy' or product.title contains 'Paws' -%}
+  {%- assign is_pet = true -%}
+  {%- assign cats = cats | append: ' pets' -%}
+{%- endif -%}
+
+<article
+  class="tz-card"
+  data-product-card
+  data-categories="{{ cats }}"
+  data-title="{{ product.title | escape }}"
+  data-price="{{ product.price }}"
+  data-index="{{ card_index | default: 0 }}"
+>
+  <div class="tz-card-media">
+    <a href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+      {%- if product.featured_image != blank -%}
+        <img
+          src="{{ product.featured_image | image_url: width: 800 }}"
+          alt="{{ product.featured_image.alt | default: product.title | escape }}"
+          loading="lazy"
+        >
+      {%- else -%}
+        <img
+          src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80"
+          alt="{{ product.title | escape }}"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </a>
+
+    <div class="tz-card-badges">
+      {%- if is_pet -%}
+        <span class="tz-badge tz-badge-caramel">🐾 Pet Care</span>
+      {%- elsif product.tags contains 'Bestseller' or product.tags contains 'bestseller' -%}
+        <span class="tz-badge tz-badge-rose">Bestseller</span>
+      {%- endif -%}
+
+      {%- if product.compare_at_price > product.price -%}
+        {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+        <span class="tz-badge tz-badge-sale">-{{ savings }}%</span>
+      {%- endif -%}
+    </div>
+
+    <div class="tz-card-quickview">
+      <button
+        type="button"
+        class="tz-quickview-btn"
+        data-quickview-trigger
+        data-qv-title="{{ product.title | escape }}"
+        data-qv-price="{{ product.price | money }}"
+        data-qv-img="{% if product.featured_image != blank %}{{ product.featured_image | image_url: width: 900 }}{% else %}https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=80{% endif %}"
+        data-qv-desc="{{ product.description | strip_html | truncate: 220 | escape }}"
+        data-qv-url="{{ product.url }}"
+        data-qv-variant="{{ first_variant.id }}"
+      >
+        👁 Quick View
+      </button>
+    </div>
+  </div>
+
+  <div class="tz-card-body">
+    <div>
+      <div class="tz-card-rating">
+        <span>★ 4.9</span>
+        <span style="color: var(--tz-espresso-400); font-weight: 400;">{{ product.type | default: 'Digital Asset' }}</span>
+      </div>
+
+      <h3 class="tz-card-title">
+        <a href="{{ product.url }}" style="color: inherit; text-decoration: none;">
+          {{ product.title }}
+        </a>
+      </h3>
+
+      {%- if product.description != blank -%}
+        <p class="tz-card-tagline">
+          {{ product.description | strip_html | truncate: 100 }}
+        </p>
+      {%- endif -%}
+    </div>
+
+    <div class="tz-card-footer">
+      <div>
+        <span class="tz-price-now">{{ product.price | money }}</span>
+        {%- if product.compare_at_price > product.price -%}
+          <span class="tz-price-old">{{ product.compare_at_price | money }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- if first_variant.available -%}
+        <button
+          type="button"
+          class="tz-add-btn"
+          data-ajax-add="{{ first_variant.id }}"
+          aria-label="Add {{ product.title | escape }} to bag"
+        >
+          <span>+</span>
+          <span class="tz-add-text">Add</span>
+        </button>
+      {%- else -%}
+        <a href="{{ product.url }}" class="tz-add-btn" style="text-decoration:none; opacity:0.65;">
+          <span>View</span>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</article>

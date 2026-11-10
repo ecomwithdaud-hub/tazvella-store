@@ -1,0 +1,38 @@
+<div id="tz-quickview-modal" class="tz-modal" aria-hidden="true">
+  <div class="tz-backdrop" data-quickview-close></div>
+  <div class="tz-modal-card" role="dialog" aria-modal="true" aria-label="Product Quick View">
+    <button
+      type="button"
+      data-quickview-close
+      class="tz-icon-btn"
+      style="position:absolute; top:0.75rem; right:0.75rem; z-index:92; background:var(--tz-cream-100); border:1px solid var(--tz-cream-300);"
+      aria-label="{{ 'general.accessibility.close' | t }}"
+    >
+      ✕
+    </button>
+
+    <div style="background:var(--tz-cream-100); padding:1.25rem; display:flex; align-items:center; justify-content:center;">
+      <div style="width:100%; aspect-ratio:4/3; border-radius:1rem; overflow:hidden; background:var(--tz-cream-200);">
+        <img id="tz-qv-img" src="" alt="" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
+
+    <div style="padding:1.5rem; display:flex; flex-direction:column; justify-content:space-between; gap:1rem;">
+      <div>
+        <span class="tz-badge tz-badge-rose">✨ Instant Digital Download</span>
+        <h2 id="tz-qv-title" class="tz-serif" style="font-size:1.5rem; font-weight:500; margin:0.65rem 0 0.35rem; line-height:1.2;"></h2>
+        <div id="tz-qv-price" class="tz-serif" style="font-size:1.65rem; font-weight:700; color:var(--tz-espresso-950);"></div>
+        <p id="tz-qv-desc" style="font-size:0.8rem; color:var(--tz-espresso-600); line-height:1.5; margin-top:0.75rem;"></p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.6rem;">
+        <button id="tz-qv-add" type="button" data-ajax-add="" data-quickview-close class="tz-btn tz-btn-primary" style="width:100%;">
+          + Add to Digital Bag
+        </button>
+        <a id="tz-qv-link" href="#" class="tz-btn tz-btn-secondary" style="width:100%; text-align:center;">
+          View Full Product Details →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
